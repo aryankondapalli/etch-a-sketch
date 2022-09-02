@@ -1,0 +1,19 @@
+body{
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-container{
+    background-color: grey;
+    width: 960px;
+    height: 960px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-container>div{
+    border: 1px solid black;
+    background-color: white;
+}
