@@ -5,6 +5,10 @@ body{
     align-items: center;
 }
 
+h1{
+    margin-bottom: 60px;
+}
+
 .grid-container{
     background-color: grey;
     width: 960px;

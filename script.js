@@ -14,14 +14,21 @@ function makeGrid(dimensions){
     let dim = (960 / dimensions) - 2;
     div.style.width = dim + 'px';
     div.style.height = dim + 'px';
+    div.addEventListener('mouseover', function(){
+        div.style.backgroundColor = 'black';
+    })
     griddiv.appendChild(div);
     }
 }
+
 let input = 0;
 resize.addEventListener('click', function() {
     input = prompt('Please enter a value between 16 and 100:', 16);
     removeChildren(griddiv);
     makeGrid(input);
 });
+
+
+
 
 makeGrid(16);
