@@ -1,13 +1,23 @@
 const griddiv = document.querySelector('.grid-container');
 const resize = document.querySelector('#resize-button');
-const erase = document.querySelector('#erase-button')
+const erase = document.querySelector('#erase-button');
+const rainbow = document.querySelector('#rainbow-button')
 let gridDimensions = 16;
+let randomColorActive = false;
 
 function removeChildren(parent){
     while(parent.firstChild){
         parent.removeChild(parent.firstChild);
     }
 }
+
+function randomColor(){
+    var r = Math.floor(Math.random() * 256);
+    var g = Math.floor(Math.random() * 256);
+    var b = Math.floor(Math.random() * 256);
+    return "rgb(" + r + "," + g + "," + b + ")";
+}
+
 
 function makeGrid(dimensions){
     for(let i = 0; i < dimensions**2; i++){
@@ -17,7 +27,12 @@ function makeGrid(dimensions){
     div.style.width = dim + 'px';
     div.style.height = dim + 'px';
     div.addEventListener('mouseover', function(){
-        div.style.backgroundColor = 'black';
+        if(randomColorActive){
+            div.style.backgroundColor = randomColor();
+        }
+        else{
+            div.style.backgroundColor = 'black';
+        }
     })
     griddiv.appendChild(div);
     }
@@ -36,7 +51,15 @@ erase.addEventListener('click', function(){
     const grid = document.querySelectorAll('.grid-div')
     grid.forEach((div) => {
         div.style.backgroundColor = 'white';
-      });
+    });
+});
+
+rainbow.addEventListener('click', function(){
+    randomColorActive = !randomColorActive;
+    const grid = document.querySelectorAll('.grid-div')
+    grid.forEach((div) => {
+        div.style.backgroundColor = 'white';
+    });
 });
 
 
